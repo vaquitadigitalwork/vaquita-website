@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaquita | Testimonials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+
+  
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin: 0 auto 38px;
+      max-width: 700px;
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .trust-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.60);
+    }
+    .trust-divider {
+      width: 1px;
+      height: 44px;
+      background: rgba(255,255,255,0.20);
+      align-self: center;
+    }
+
+    /* ══════════════════════════════
+       MARQUEE WRAPPER
+    ══════════════════════════════ */
+    .testimonial-marquee-wrap {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0 18px;
+      margin-top: 10px;
+    }
+    .testimonial-marquee-wrap::before,
+    .testimonial-marquee-wrap::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 130px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .testimonial-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(4,16,55,0.60), transparent);
+    }
+    .testimonial-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(4,16,55,0.60), transparent);
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: scrollLeft 38s linear infinite;
+    }
+    .testimonial-track.reverse {
+      animation: scrollRight 44s linear infinite;
+    }
+    .testimonial-track:hover,
+    .testimonial-track.reverse:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes scrollRight {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+
+    /* ══════════════════════════════
+       REVIEW CARD
+    ══════════════════════════════ */
+    .t-card {
+      width: 300px;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.93);
+      border: 1px solid rgba(0,94,255,0.15);
+      border-radius: 20px;
+      padding: 22px 20px 20px;
+      box-shadow: 0 12px 32px rgba(0,40,110,0.14);
+      backdrop-filter: blur(14px);
+      transition: 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .t-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(0,94,255,0.20);
+      border-color: rgba(0,94,255,0.28);
+    }
+
+    /* top accent bar */
+    .t-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 20px 20px 0 0;
+      background: linear-gradient(90deg, #005eff, #38bdf8);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .t-card:hover::before { opacity: 1; }
+
+    .t-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .t-card-left {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #005eff, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,94,255,0.28);
+    }
+    .t-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #005eff;
+      line-height: 1.2;
+    }
+    .t-role {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+    .t-card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
+    .t-stars {
+      color: #facc15;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .t-date {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .t-divider {
+      height: 1px;
+      background: rgba(0,94,255,0.08);
+      margin: 0 0 12px;
+    }
+
+    .t-quote {
+      font-size: 36px;
+      line-height: 0.5;
+      color: rgba(0,94,255,0.12);
+      font-family: Georgia, serif;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .t-text {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.75;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .t-new-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #005eff, #38bdf8);
+      color: white;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ══════════════════════════════
+       SECTION LABEL
+    ══════════════════════════════ */
+    .section-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin: 28px 0 4px;
+    }
+
+    /* ══════════════════════════════
+       SUBMIT FORM
+    ══════════════════════════════ */
+    .submit-wrapper {
+      max-width: 700px;
+      margin: 60px auto 0;
+    }
+    .submit-header-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 18px;
+    }
+    .submit-section {
+      background: rgba(255,255,255,0.93);
+      border: 1px solid rgba(0,94,255,0.15);
+      border-radius: 26px;
+      padding: 38px 36px;
+      box-shadow: 0 20px 50px rgba(0,55,130,0.16);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+    /* top accent */
+    .submit-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #005eff, #38bdf8, #5b2cff);
+    }
+    .submit-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #005eff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .submit-title i { color: #38bdf8; font-size: 20px; }
+    .submit-sub {
+      color: #64748b;
+      font-size: 13.5px;
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+
+    .submit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+    .submit-grid .full { grid-column: 1 / -1; }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .submit-section input,
+    .submit-section textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 11px;
+      border: 1px solid rgba(0,94,255,0.18);
+      background: #f8faff;
+      color: #07172f;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: 0.3s ease;
+      box-sizing: border-box;
+    }
+    .submit-section input:focus,
+    .submit-section textarea:focus {
+      border-color: #005eff;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(0,94,255,0.09);
+    }
+    .submit-section textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* star picker */
+    .star-picker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      border-radius: 11px;
+      border: 1px solid rgba(0,94,255,0.18);
+      background: #f8faff;
+    }
+    .star-picker > span {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .stars-wrap {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1px;
+    }
+    .stars-wrap input { display: none; }
+    .stars-wrap label {
+      font-size: 24px;
+      cursor: pointer;
+      color: #cbd5e1;
+      transition: 0.15s;
+    }
+    .stars-wrap label:hover,
+    .stars-wrap label:hover ~ label,
+    .stars-wrap input:checked ~ label { color: #facc15; }
+
+    .submit-btn-wrap { margin-top: 18px; }
+    .submit-btn-wrap button {
+      width: 100%;
+      padding: 13px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #005eff, #38bdf8);
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,94,255,0.26);
+      transition: 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .submit-btn-wrap button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,94,255,0.36);
+    }
+
+    /* success flash */
+    .flash-success {
+      background: linear-gradient(135deg, rgba(20,184,166,0.10), rgba(56,189,248,0.08));
+      border: 1px solid rgba(20,184,166,0.30);
+      border-radius: 13px;
+      padding: 13px 18px;
+      color: #0f766e;
+      font-weight: 600;
+      font-size: 13.5px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .flash-success i { color: #14b8a6; font-size: 17px; }
+
+    /* note below button */
+    .submit-note {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+    .submit-note i { color: #38bdf8; margin-right: 4px; }
+
+    @media (max-width: 680px) {
+      .submit-grid { grid-template-columns: 1fr; }
+      .submit-section { padding: 28px 20px; }
+      .trust-bar { gap: 20px; }
+      .trust-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <a href="/" class="logo-link">
+      <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        onerror="this.onerror=null; this.src='{{ url_for('static', filename='logo.jpeg') }}';"
+        alt="Vaquita Logo"
+        class="logo-img"
+      >
+      <span class="logo-text">VAQUITA</span>
+    </a>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/testimonials" class="active">Testimonials</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════
+     DEFAULT SAMPLE REVIEWS shown when
+     reviews.json is empty (startup phase)
+     Real client reviews from Flask stack on top
+════════════════════════════════════════ -->
+{% set default_reviews = [
+  {"name": "Rahul Kumar",    "role": "Business Owner",      "rating": 5, "text": "Vaquita transformed our online presence completely. The website they built is fast, modern, and our clients love it.",          "date": "02 May 2026", "avatar": "R"},
+  {"name": "Sneha Reddy",    "role": "Startup Founder",     "rating": 5, "text": "The branding and digital work was creative and professional from day one. Highly recommend Vaquita to any startup.",             "date": "28 Apr 2026", "avatar": "S"},
+  {"name": "Arjun Patel",    "role": "E-commerce Owner",    "rating": 5, "text": "Clean design, fast delivery, and the team understood exactly what we needed without much explanation. Outstanding work.",         "date": "24 Apr 2026", "avatar": "A"},
+  {"name": "Priya Sharma",   "role": "Digital Marketer",    "rating": 5, "text": "Strong design ideas and the final output gave our brand a premium look. Our engagement went up noticeably after launch.",        "date": "19 Apr 2026", "avatar": "P"},
+  {"name": "Kiran Verma",    "role": "Freelancer",          "rating": 5, "text": "Fast communication and dependable support. Vaquita helped me set up my freelancing profile and land my first client.",           "date": "14 Apr 2026", "avatar": "K"},
+  {"name": "Anjali Mehta",   "role": "Marketing Head",      "rating": 5, "text": "Our website looks far more organized and attractive now. The team was patient and worked until everything was perfect.",         "date": "10 Apr 2026", "avatar": "A"},
+  {"name": "Vikram Nair",    "role": "Agency Director",     "rating": 5, "text": "Excellent understanding of our brand identity. Delivered ahead of schedule with zero revisions needed. Truly professional.",     "date": "05 Apr 2026", "avatar": "V"},
+  {"name": "Meera Joshi",    "role": "Content Creator",     "rating": 5, "text": "My personal brand website looks incredible. Vaquita nailed the aesthetics and everything works smoothly on mobile too.",        "date": "01 Apr 2026", "avatar": "M"},
+  {"name": "Deepak Singh",   "role": "Product Manager",     "rating": 5, "text": "Highly professional team with great attention to detail. The project was delivered on time and the quality exceeded expectations.", "date": "27 Mar 2026", "avatar": "D"},
+  {"name": "Neha Kapoor",    "role": "Small Business Owner","rating": 5, "text": "Working with Vaquita was the best investment I made for my business. The results were beyond what I had imagined.",             "date": "22 Mar 2026", "avatar": "N"},
+  {"name": "Rohan Desai",    "role": "Entrepreneur",        "rating": 5, "text": "I would recommend Vaquita to anyone looking for a reliable digital partner. They truly care about client success.",             "date": "18 Mar 2026", "avatar": "R"},
+  {"name": "Tanvi Gupta",    "role": "Influencer",          "rating": 5, "text": "Vaquita understood my vision perfectly. The website reflects exactly who I am as a brand. Absolutely love the result.",         "date": "12 Mar 2026", "avatar": "T"}
+] %}
+
+{% set all_reviews = reviews + default_reviews %}
+{% set total_count = all_reviews | length %}
+{% set row1 = all_reviews %}
+{% set row2 = all_reviews | reverse | list %}
+
+<section class="page-section fade-up">
+
+  <h1 class="page-title">Client Testimonials</h1>
+  <p class="page-desc">Real reviews from real clients — updated every day as people share their experience with Vaquita.</p>
+
+  <!-- TRUST STATS BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <span class="trust-num">{{ total_count }}+</span>
+      <span class="trust-label">Happy Clients</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <span class="trust-num">5.0</span>
+      <span class="trust-label">Average Rating</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <span class="trust-num">★★★★★</span>
+      <span class="trust-label">Verified Reviews</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <span class="trust-num">100%</span>
+      <span class="trust-label">Satisfaction Rate</span>
+    </div>
+  </div>
+
+  <!-- ROW 1 — scrolls LEFT -->
+  <p class="section-label">⭐ What our clients say</p>
+  <div class="testimonial-marquee-wrap">
+    <div class="testimonial-track">
+      {% for r in row1 %}
+      <div class="t-card">
+        <div class="t-card-header">
+          <div class="t-card-left">
+            <div class="t-avatar">{{ r.avatar }}</div>
+            <div>
+              <div class="t-name">
+                {{ r.name }}
+                {% if loop.index <= reviews|length %}<span class="t-new-badge">New</span>{% endif %}
+              </div>
+              <div class="t-role">{{ r.role }}</div>
+            </div>
+          </div>
+          <div class="t-card-right">
+            <div class="t-stars">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+            <div class="t-date">{{ r.date }}</div>
+          </div>
+        </div>
+        <div class="t-divider"></div>
+        <span class="t-quote">"</span>
+        <div class="t-text">{{ r.text }}</div>
+      </div>
+      {% endfor %}
+      {# Duplicate for seamless loop #}
+      {% for r in row1 %}
+      <div class="t-card">
+        <div class="t-card-header">
+          <div class="t-card-left">
+            <div class="t-avatar">{{ r.avatar }}</div>
+            <div>
+              <div class="t-name">{{ r.name }}</div>
+              <div class="t-role">{{ r.role }}</div>
+            </div>
+          </div>
+          <div class="t-card-right">
+            <div class="t-stars">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+            <div class="t-date">{{ r.date }}</div>
+          </div>
+        </div>
+        <div class="t-divider"></div>
+        <span class="t-quote">"</span>
+        <div class="t-text">{{ r.text }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- ROW 2 — scrolls RIGHT -->
+  <p class="section-label" style="margin-top:14px;">More happy clients</p>
+  <div class="testimonial-marquee-wrap">
+    <div class="testimonial-track reverse">
+      {% for r in row2 %}
+      <div class="t-card">
+        <div class="t-card-header">
+          <div class="t-card-left">
+            <div class="t-avatar">{{ r.avatar }}</div>
+            <div>
+              <div class="t-name">{{ r.name }}</div>
+              <div class="t-role">{{ r.role }}</div>
+            </div>
+          </div>
+          <div class="t-card-right">
+            <div class="t-stars">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+            <div class="t-date">{{ r.date }}</div>
+          </div>
+        </div>
+        <div class="t-divider"></div>
+        <span class="t-quote">"</span>
+        <div class="t-text">{{ r.text }}</div>
+      </div>
+      {% endfor %}
+      {% for r in row2 %}
+      <div class="t-card">
+        <div class="t-card-header">
+          <div class="t-card-left">
+            <div class="t-avatar">{{ r.avatar }}</div>
+            <div>
+              <div class="t-name">{{ r.name }}</div>
+              <div class="t-role">{{ r.role }}</div>
+            </div>
+          </div>
+          <div class="t-card-right">
+            <div class="t-stars">{{ '★' * r.rating }}{{ '☆' * (5 - r.rating) }}</div>
+            <div class="t-date">{{ r.date }}</div>
+          </div>
+        </div>
+        <div class="t-divider"></div>
+        <span class="t-quote">"</span>
+        <div class="t-text">{{ r.text }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════
+       SUBMIT REVIEW FORM
+  ════════════════════════════════ -->
+  <div class="submit-wrapper" id="submit">
+    <p class="submit-header-label">✍ Leave a review</p>
+    <div class="submit-section">
+
+      {% if request.args.get('submitted') == '1' %}
+      <div class="flash-success">
+        <i class="fas fa-circle-check"></i>
+        Thank you! Your review is now live at the top of the page.
+      </div>
+      {% endif %}
+
+      <div class="submit-title">
+        <i class="fas fa-pen-to-square"></i>
+        Share Your Experience
+      </div>
+      <p class="submit-sub">
+        Worked with Vaquita? Drop a quick review — it goes live instantly and helps other clients trust us.
+      </p>
+
+      <form action="/submit-review" method="POST">
+        <div class="submit-grid">
+
+          <div>
+            <div class="field-label">Your Name *</div>
+            <input type="text" name="name" placeholder="e.g. Rahul Kumar" required maxlength="60">
+          </div>
+
+          <div>
+            <div class="field-label">Role / Business</div>
+            <input type="text" name="role" placeholder="e.g. Startup Founder" maxlength="60">
+          </div>
+
+          <div class="full">
+            <div class="field-label">Your Review *</div>
+            <textarea name="text" placeholder="Tell others about your experience with Vaquita..." required maxlength="400"></textarea>
+          </div>
+
+          <div class="full">
+            <div class="field-label">Your Rating</div>
+            <div class="star-picker">
+              <span>Tap to rate:</span>
+              <div class="stars-wrap">
+                <input type="radio" name="rating" id="s5" value="5" checked>
+                <label for="s5">★</label>
+                <input type="radio" name="rating" id="s4" value="4">
+                <label for="s4">★</label>
+                <input type="radio" name="rating" id="s3" value="3">
+                <label for="s3">★</label>
+                <input type="radio" name="rating" id="s2" value="2">
+                <label for="s2">★</label>
+                <input type="radio" name="rating" id="s1" value="1">
+                <label for="s1">★</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="submit-btn-wrap">
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Post My Review
+          </button>
+        </div>
+
+        <p class="submit-note">
+          <i class="fas fa-lock"></i> Your review goes live instantly. No account needed.
+        </p>
+      </form>
+    </div>
+  </div>
+
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top-bar">
+    <div class="footer-top-left">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <div class="footer-social-icons">
+
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA=="><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/vaquitadigitalwork"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+  <div class="footer-main">
+    <div class="footer-column">
+      <h3>VAQUITA</h3>
+      <div class="footer-line"></div>
+      <p>Vaquita is a modern digital service platform focused on helping businesses, startups, and individuals grow through web design, digital marketing, freelancing support, and branding solutions.</p>
+    </div>
+    <div class="footer-column">
+      <h3>SERVICES</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/services">Digital Marketing</a></li>
+        <li><a href="/services">Freelancing</a></li>
+        <li><a href="/services">Web Designing</a></li>
+        <li><a href="/portfolio">Portfolio Projects</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>USEFUL LINKS</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>CONTACT</h3>
+      <div class="footer-line"></div>
+      <p><i class="fas fa-house"></i> Telangana, India</p>
+      <p><i class="fas fa-envelope"></i> vaquitadigitalsolutions@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 9849141518</p>
+      <p><i class="fas fa-print"></i> +91 9849141518</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Copyright: <span>Vaquita</span></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaquita | FAQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    .faq-search-wrap {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 30px auto 25px;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+
+    .faq-search-input {
+      padding: 14px;
+      width: 65%;
+      min-width: 260px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #101014;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+.faq-search-input:focus {
+  border-color: rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.faq-search-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.faq-search-btn:hover {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+}
+
+.faq-result-box {
+  border: 1px solid rgba(59, 130, 246, 0.18);
+}
+
+.faq-result-box h2 {
+  color: #60a5fa;
+}
+
+.faq-result-box h3 {
+  color: #93c5fd;
+}
+  </style>
+</head>
+<body>
+  
+
+<header>
+  <div class="logo-wrap">
+    <a href="/" class="logo-link">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Vaquita Logo" class="logo-img">
+      <span class="logo-text">VAQUITA</span>
+    </a>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/faq" class="active">FAQ</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<section class="page-section fade-up">
+  <h1 class="page-title">Frequently Asked Questions</h1>
+  <p class="page-desc">
+    Ask a question about Vaquita and the search will show the best matching explanation.
+  </p>
+
+  <div class="faq-search-wrap">
+    <input
+      type="text"
+      id="faqSearch"
+      placeholder="Ask something like: Do you create WordPress websites?"
+      class="faq-search-input"
+    >
+    <button onclick="searchFAQ()" class="faq-search-btn">Search</button>
+  </div>
+
+  <div id="faqResult" class="faq-result-box">
+    <h2>Search Result</h2>
+    <p>Type a question and click search. Example questions:</p>
+    <ul>
+      <li>What services does Vaquita provide?</li>
+      <li>Do you create websites using WordPress?</li>
+      <li>Do you help with resume preparation?</li>
+      <li>What is included in digital marketing?</li>
+      <li>Do you offer custom pricing?</li>
+    </ul>
+  </div>
+
+  <div class="cards">
+    <div class="card animated-card">
+      <h3>What services does Vaquita provide?</h3>
+      <p>We provide digital marketing, freelancing support, web designing, branding assistance, and business-focused digital solutions.</p>
+    </div>
+
+    <div class="card animated-card">
+      <h3>Do you work with startups and small businesses?</h3>
+      <p>Yes. Our services are designed for startups, small businesses, and individuals who need affordable and professional digital support.</p>
+    </div>
+
+    <div class="card animated-card">
+      <h3>Can you create responsive websites?</h3>
+      <p>Yes. We design websites that work properly on desktop, mobile, and tablet devices.</p>
+    </div>
+
+    <div class="card animated-card">
+      <h3>Do you provide custom pricing?</h3>
+      <p>Yes. Packages can be adjusted depending on service type, project scope, and business goals.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqKnowledge = [
+    {
+      title: "Digital Marketing",
+      keywords: [
+        "digital marketing", "marketing", "seo", "online marketing", "ads", "advertising",
+        "social media", "promotion", "branding", "lead generation", "content marketing",
+        "instagram", "facebook", "google ranking", "audience"
+      ],
+      answer: `
+        <h2>Digital Marketing</h2>
+        <p>
+          Digital marketing is one of the main services offered by Vaquita. It helps businesses promote
+          their products and services through online platforms and improve brand visibility, customer reach,
+          and business growth.
+        </p>
+        <p>
+          At Vaquita, digital marketing is focused on building an effective online presence. It is useful
+          for startups, small businesses, and brands that want better visibility, more customer engagement,
+          and improved business opportunities.
+        </p>
+
+        <h3>What is included</h3>
+        <ul>
+          <li>Online marketing for business promotion</li>
+          <li>Search Engine Optimization (SEO)</li>
+          <li>Social media marketing</li>
+          <li>Paid ads and campaign support</li>
+          <li>Brand awareness improvement</li>
+          <li>Content marketing and promotional planning</li>
+          <li>Audience engagement strategies</li>
+          <li>Lead generation support</li>
+        </ul>
+      `
+    },
+    {
+      title: "Freelancing Services",
+      keywords: [
+        "freelancing", "freelance", "resume", "cv", "portfolio", "presentation",
+        "project support", "content writing", "resume preparation", "portfolio creation",
+        "project", "assignment", "document", "creative work"
+      ],
+      answer: `
+        <h2>Freelancing Services</h2>
+        <p>
+          Vaquita provides freelancing services for clients who need flexible digital support. These services
+          are useful for students, professionals, personal brands, and businesses that need project-based help.
+        </p>
+        <p>
+          The freelancing category focuses on creative and professional support that can improve presentation,
+          communication, and work quality without requiring a full in-house team.
+        </p>
+
+        <h3>What is included</h3>
+        <ul>
+          <li>Resume preparation and professional resume formatting</li>
+          <li>Portfolio creation for students and professionals</li>
+          <li>Presentation design and slide preparation</li>
+          <li>Content writing support</li>
+          <li>Project assistance for digital work</li>
+          <li>Creative business support</li>
+          <li>Custom freelance solutions based on requirement</li>
+        </ul>
+      `
+    },
+    {
+      title: "Web Designing",
+      keywords: [
+        "web design", "web designing", "website", "wordpress", "html", "css", "javascript",
+        "coding", "responsive", "landing page", "business website", "portfolio website",
+        "website design", "frontend"
+      ],
+      answer: `
+        <h2>Web Designing</h2>
+        <p>
+          Vaquita creates modern, responsive, and user-friendly websites that help businesses build trust,
+          improve presentation, and communicate clearly with customers.
+        </p>
+        <p>
+          This service includes both no-code and coding-based solutions depending on the project. The goal
+          is to create websites that are visually strong, easy to use, and suitable for business growth.
+        </p>
+
+        <h3>What is included</h3>
+        <ul>
+          <li>Website design using WordPress</li>
+          <li>Website development using HTML, CSS, and JavaScript</li>
+          <li>Responsive website design for mobile and desktop</li>
+          <li>Business websites</li>
+          <li>Portfolio websites</li>
+          <li>Landing page design</li>
+          <li>Frontend design using coding</li>
+          <li>Website redesign and layout improvement</li>
+        </ul>
+      `
+    },
+    {
+      title: "Pricing",
+      keywords: [
+        "pricing", "price", "cost", "plan", "plans", "budget", "package", "packages",
+        "basic", "premium", "standard", "custom pricing"
+      ],
+      answer: `
+        <h2>Pricing</h2>
+        <p>
+          Vaquita offers pricing plans that are designed to be flexible for different business sizes and
+          project needs.
+        </p>
+
+        <h3>Available plans</h3>
+        <ul>
+          <li>Basic Plan: ₹4,999</li>
+          <li>Standard Plan: ₹9,999</li>
+          <li>Premium Plan: ₹19,999</li>
+          <li>Custom packages are also available</li>
+        </ul>
+
+        <p>
+          The final plan depends on the service type, scope of work, and client goals.
+        </p>
+      `
+    },
+    {
+      title: "Contact",
+      keywords: [
+        "contact", "email", "phone", "number", "reach", "location", "where are you",
+        "how to contact", "address"
+      ],
+      answer: `
+        <h2>Contact Details</h2>
+        <p>
+          You can contact Vaquita for project discussions, service inquiries, and business support.
+        </p>
+
+        <ul>
+          <li>Email: vaquitadigitalsolutions@gmail.com</li>
+          <li>Phone: +91 9849141518</li>
+          <li>Location: Telangana, India</li>
+        </ul>
+      `
+    },
+    {
+      title: "Startups and Small Businesses",
+      keywords: [
+        "startup", "startups", "small business", "small businesses", "new business",
+        "beginner", "starting business"
+      ],
+      answer: `
+        <h2>Support for Startups and Small Businesses</h2>
+        <p>
+          Yes. Vaquita is especially suitable for startups, small businesses, and individuals who need
+          affordable, practical, and professional digital services.
+        </p>
+        <p>
+          The company focuses on helping smaller brands build a strong online identity through digital marketing,
+          design, and flexible support services.
+        </p>
+      `
+    },
+    {
+      title: "Project Process",
+      keywords: [
+        "process", "how do you work", "start project", "begin project", "workflow",
+        "steps", "how to start"
+      ],
+      answer: `
+        <h2>How Projects Start at Vaquita</h2>
+        <p>
+          Projects usually begin by understanding the client’s business needs and goals. After that, the work
+          is planned, designed, and executed in a clear and structured way.
+        </p>
+
+        <h3>Basic process</h3>
+        <ul>
+          <li>Understand the business requirement</li>
+          <li>Plan the right solution</li>
+          <li>Create and develop the work</li>
+          <li>Provide guidance and support</li>
+        </ul>
+      `
+    }
+  ];
+
+  function getScore(input, item) {
+    let score = 0;
+    const normalized = input.toLowerCase();
+
+    item.keywords.forEach(keyword => {
+      const key = keyword.toLowerCase();
+
+      if (normalized.includes(key)) {
+        score += 8;
+      }
+
+      if (key.includes(normalized) && normalized.length > 2) {
+        score += 4;
+      }
+    });
+
+    const words = normalized.split(/\s+/).filter(word => word.length > 2);
+
+    words.forEach(word => {
+      if (item.title.toLowerCase().includes(word)) {
+        score += 3;
+      }
+
+      item.keywords.forEach(keyword => {
+        if (keyword.toLowerCase().includes(word)) {
+          score += 2;
+        }
+      });
+    });
+
+    return score;
+  }
+
+  function searchFAQ() {
+    const input = document.getElementById("faqSearch").value.trim();
+    const resultBox = document.getElementById("faqResult");
+
+    if (!input) {
+      resultBox.innerHTML = `
+        <h2>Search Result</h2>
+        <p>Please enter a question first.</p>
+      `;
+      return;
+    }
+
+    let bestItem = null;
+    let bestScore = 0;
+
+    faqKnowledge.forEach(item => {
+      const score = getScore(input, item);
+      if (score > bestScore) {
+        bestScore = score;
+        bestItem = item;
+      }
+    });
+
+    if (bestItem && bestScore > 0) {
+      resultBox.innerHTML = bestItem.answer;
+    } else {
+      resultBox.innerHTML = `
+        <h2>Search Result</h2>
+        <p>
+          I could not find a strong match for that question.
+          Try asking about digital marketing, freelancing, WordPress websites,
+          resume preparation, pricing, contact details, or project process.
+        </p>
+      `;
+    }
+  }
+
+  document.getElementById("faqSearch").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      searchFAQ();
+    }
+  });
+</script>
+<footer class="site-footer">
+  <div class="footer-top-bar">
+    <div class="footer-top-left">
+      <span>Get connected with us on social networks:</span>
+    </div>
+
+    <div class="footer-social-icons">
+
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA=="><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/vaquitadigitalwork"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div class="footer-column">
+      <h3>VAQUITA</h3>
+      <div class="footer-line"></div>
+      <p>
+        Vaquita is a modern digital service platform focused on helping
+        businesses, startups, and individuals grow through web design,
+        digital marketing, freelancing support, and branding solutions.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>SERVICES</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/services">Digital Marketing</a></li>
+        <li><a href="/services">Freelancing</a></li>
+        <li><a href="/services">Web Designing</a></li>
+        <li><a href="/portfolio">Portfolio Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>USEFUL LINKS</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>CONTACT</h3>
+      <div class="footer-line"></div>
+      <p><i class="fas fa-house"></i> Telangana, India</p>
+      <p><i class="fas fa-envelope"></i> vaquitadigitalsolutions@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 9849141518</p>
+      <p><i class="fas fa-print"></i> +91 9849141518</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Copyright: <span>Vaquita</span></p>
+  </div>
+</footer>
+
+</body>
+</html>

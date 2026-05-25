@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaquita | Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    .service-button {
+      border: none;
+      width: 100%;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .card:hover .card-img {
+      transform: scale(1.05);
+      filter: brightness(1.08);
+    }
+
+    .service-details-box ul {
+      text-align: left;
+      max-width: 850px;
+      margin: 18px auto 0;
+      line-height: 1.9;
+      color: #d1d1d1;
+    }
+
+    
+    .service-details-box h3 {
+      color: #60a5fa;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <a href="/" class="logo-link">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Vaquita Logo" class="logo-img">
+      <span class="logo-text">VAQUITA</span>
+    </a>
+  </div>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services" class="active">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<section class="page-section fade-up">
+  <h1 class="page-title">Our Services</h1>
+  <p class="page-desc">
+    Vaquita offers digital services designed to help businesses improve their
+    visibility, strengthen branding, and grow online in a practical and
+    professional way. Click any service box below to see full details.
+  </p>
+
+  <div class="cards service-grid">
+    <button type="button" class="card animated-card service-button digital-btn" onclick="showService('digital')">
+      <img src="{{ url_for('static', filename='digitalmarketing.jpg') }}" alt="Digital Marketing" class="card-img">
+      <h3>Digital Marketing</h3>
+      <p>SEO, social media, branding, campaigns, and online growth strategies.</p>
+      <a href="/pricing" class="btn btn-primary service-order-btn">Confirm Order</a>
+    </button>
+
+    <button type="button" class="card animated-card service-button freelance-btn" onclick="showService('freelance')">
+      <img src="{{ url_for('static', filename='freelancing.jpg') }}" alt="Freelancing" class="card-img">
+      <h3>Freelancing</h3>
+      <p>Flexible support for creative, digital, and project-based client work.</p>
+      <a href="/pricing" class="btn btn-primary service-order-btn">Confirm Order</a>
+    </button>
+
+    <button type="button" class="card animated-card service-button web-btn" onclick="showService('web')">
+      <img src="{{ url_for('static', filename='web design.jpg') }}" alt="Web Designing" class="card-img">
+      <h3>Web Designing</h3>
+      <p>Responsive, attractive, and user-friendly websites for modern businesses.</p>
+      <a href="/pricing" class="btn btn-primary service-order-btn">Confirm Order</a>
+    </button>
+  </div>
+
+  <div id="service-details" class="service-details-box fade-up">
+    <h2>Select a Service</h2>
+    <p>Click one of the service boxes above to view complete details.</p>
+  </div>
+</section>
+
+
+<script>
+  function showService(type) {
+    const box = document.getElementById("service-details");
+
+    if (type === "digital") {
+      box.innerHTML = `
+        <h2>Digital Marketing</h2>
+        <p>
+          Digital marketing helps businesses promote their products and services
+          through online platforms and reach the right audience effectively.
+          At Vaquita, we provide creative and result-oriented digital marketing
+          services that improve visibility, engagement, and business growth.
+        </p>
+
+        <h3>Our Digital Marketing Services</h3>
+        <ul>
+          <li>Online marketing for business growth and promotion</li>
+          <li>Social media marketing for Instagram, Facebook, and other platforms</li>
+          <li>Search Engine Optimization (SEO) to improve Google ranking</li>
+          <li>Paid advertising and campaign support</li>
+          <li>Brand awareness and online visibility improvement</li>
+          <li>Content marketing and promotional content planning</li>
+          <li>Email marketing and customer communication support</li>
+          <li>Audience engagement strategies</li>
+          <li>Lead generation for business opportunities</li>
+          <li>Performance tracking and campaign analysis</li>
+        </ul>
+      `;
+    }
+
+    if (type === "freelance") {
+      box.innerHTML = `
+        <h2>Freelancing</h2>
+        <p>
+          Freelancing services at Vaquita are designed to support clients with
+          flexible digital tasks, project-based work, and professional assistance.
+          These services are useful for students, professionals, small businesses,
+          and personal brands.
+        </p>
+
+        <h3>Our Freelancing Services</h3>
+        <ul>
+          <li>Resume preparation and professional resume design</li>
+          <li>Portfolio preparation for students and professionals</li>
+          <li>Content writing and business document support</li>
+          <li>Presentation preparation and creative slide support</li>
+          <li>Project assistance for digital and academic tasks</li>
+          <li>Online business support and client communication help</li>
+          <li>Branding content creation</li>
+          <li>Poster, banner, and social media content design</li>
+          <li>Freelance design and creative support</li>
+          <li>Custom project-based solutions as per requirement</li>
+        </ul>
+      `;
+    }
+
+    if (type === "web") {
+      box.innerHTML = `
+        <h2>Web Designing</h2>
+        <p>
+          Web design at Vaquita focuses on creating attractive, responsive,
+          and professional websites that improve user experience and build
+          customer trust. We provide both no-code and coding-based web solutions.
+        </p>
+
+        <h3>Our Web Design Services</h3>
+        <ul>
+          <li>Website design using WordPress</li>
+          <li>Website development using HTML, CSS, and JavaScript</li>
+          <li>Frontend design using coding</li>
+          <li>Responsive website design for mobile, tablet, and desktop</li>
+          <li>Business websites for companies and startups</li>
+          <li>Portfolio websites for individuals and freelancers</li>
+          <li>Landing page design for promotions and lead generation</li>
+          <li>UI/UX improvement for better user experience</li>
+          <li>Website redesign for old websites</li>
+          <li>Custom design solutions based on client needs</li>
+        </ul>
+      `;
+    }
+
+    box.classList.remove("pop-animate");
+    void box.offsetWidth;
+    box.classList.add("pop-animate");
+  }
+</script>
+<footer class="site-footer">
+  <div class="footer-top-bar">
+    <div class="footer-top-left">
+      <span>Get connected with us on social networks:</span>
+    </div>
+
+    <div class="footer-social-icons">
+
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA=="><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/vaquitadigitalwork"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div class="footer-column">
+      <h3>VAQUITA</h3>
+      <div class="footer-line"></div>
+      <p>
+        Vaquita is a modern digital service platform focused on helping
+        businesses, startups, and individuals grow through web design,
+        digital marketing, freelancing support, and branding solutions.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>SERVICES</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/services">Digital Marketing</a></li>
+        <li><a href="/services">Freelancing</a></li>
+        <li><a href="/services">Web Designing</a></li>
+        <li><a href="/portfolio">Portfolio Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>USEFUL LINKS</h3>
+      <div class="footer-line"></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>CONTACT</h3>
+      <div class="footer-line"></div>
+      <p><i class="fas fa-house"></i> Telangana, India</p>
+      <p><i class="fas fa-envelope"></i> vaquitadigitalsolutions@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 9849141518</p>
+      <p><i class="fas fa-print"></i> +91 9849141518</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Copyright: <span>Vaquita</span></p>
+  </div>
+</footer>
+
+</body>
+</html>

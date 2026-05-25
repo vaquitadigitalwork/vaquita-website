@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vaquita | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<!-- PORTFOLIO HERO LIGHT -->
+
+<div class="portfolio-hero-bg"></div>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="logo-wrap">
+
+    <a href="/" class="logo-link">
+
+      <img src="{{ url_for('static', filename='logo.png') }}"
+           alt="Vaquita Logo"
+           class="logo-img">
+
+      <span class="logo-text">VAQUITA</span>
+
+    </a>
+
+  </div>
+
+  <nav>
+
+    <a href="/">Home</a>
+
+    <a href="/about">About</a>
+
+    <a href="/services">Services</a>
+
+    <a href="/portfolio" class="active">Portfolio</a>
+
+    <a href="/pricing">Pricing</a>
+
+    <a href="/testimonials">Testimonials</a>
+
+    <a href="/faq">FAQ</a>
+
+    <a href="/contact">Contact</a>
+
+  </nav>
+
+</header>
+
+<!-- PORTFOLIO SECTION -->
+
+<section class="page-section fade-up portfolio-section">
+
+  <h1 class="page-title">Our Portfolio</h1>
+
+  <p class="page-desc">
+    Explore the kind of digital work Vaquita can create
+    for businesses, startups, creators, and personal brands.
+  </p>
+
+  <div class="cards portfolio-gallery">
+
+    <!-- CARD 1 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='digitalmarketing.jpg') }}"
+           alt="Digital Marketing Project"
+           class="card-img">
+
+      <h3>Digital Campaign Concepts</h3>
+
+      <p>
+        Creative campaign layouts, promotional ideas,
+        and branding visuals designed to increase
+        online reach and audience engagement.
+      </p>
+
+    </div>
+
+    <!-- CARD 2 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='freelancing.jpg') }}"
+           alt="Freelancing Project"
+           class="card-img">
+
+      <h3>Freelance Support Projects</h3>
+
+      <p>
+        Resume building, portfolio creation,
+        presentation design, and digital support
+        services for professionals and creators.
+      </p>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='web-design.jpg') }}"
+           alt="Web Design Project"
+           class="card-img">
+
+      <h3>Website Design Projects</h3>
+
+      <p>
+        Business websites, landing pages,
+        and responsive layouts built to improve
+        brand trust and online visibility.
+      </p>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='company.jpg') }}"
+           alt="Branding Project"
+           class="card-img">
+
+      <h3>Brand Identity Concepts</h3>
+
+      <p>
+        Creative branding solutions designed to help
+        businesses present themselves professionally
+        across digital platforms.
+      </p>
+
+    </div>
+
+    <!-- CARD 5 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='digitalmarketing.jpg') }}"
+           alt="Analytics Visual"
+           class="card-img">
+
+      <h3>Growth Strategy Visuals</h3>
+
+      <p>
+        Modern presentation visuals and strategy-focused
+        designs that communicate business value clearly.
+      </p>
+
+    </div>
+
+    <!-- CARD 6 -->
+
+    <div class="card animated-card">
+
+      <img src="{{ url_for('static', filename='web-design.jpg') }}"
+           alt="UI Project"
+           class="card-img">
+
+      <h3>UI & Layout Concepts</h3>
+
+      <p>
+        Clean modern user interface concepts created
+        to improve user experience and visual appeal.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA SECTION -->
+
+<section class="cta-banner fade-up">
+
+  <h2>Let's Build Something Professional Together</h2>
+
+  <p>
+    Vaquita helps businesses, startups, creators,
+    and professionals grow through modern websites,
+    branding, freelancing solutions,
+    and digital marketing strategies.
+  </p>
+
+  <a href="/contact" class="btn btn-primary">
+    Start Your Project
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+  <!-- TOP BAR -->
+
+  <div class="footer-top-bar">
+
+    <div class="footer-top-left">
+
+      <span>
+        Get connected with us on social networks:
+      </span>
+
+    </div>
+
+    <div class="footer-social-icons">
+
+
+      </a>
+
+      <a href="#">
+        <i class="fab fa-google"></i>
+      </a>
+
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA==">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://github.com/vaquitadigitalwork">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER MAIN -->
+
+  <div class="footer-main">
+
+    <!-- COLUMN 1 -->
+
+    <div class="footer-column">
+
+      <h3>VAQUITA</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        Vaquita is a modern digital solutions platform
+        focused on helping businesses, startups,
+        creators, and professionals grow through
+        web design, branding, freelancing support,
+        and digital marketing services.
+      </p>
+
+    </div>
+
+    <!-- COLUMN 2 -->
+
+    <div class="footer-column">
+
+      <h3>SERVICES</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+
+        <li>
+          <a href="/services">Digital Marketing</a>
+        </li>
+
+        <li>
+          <a href="/services">Freelancing</a>
+        </li>
+
+        <li>
+          <a href="/services">Web Designing</a>
+        </li>
+
+        <li>
+          <a href="/portfolio">Portfolio Projects</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- COLUMN 3 -->
+
+    <div class="footer-column">
+
+      <h3>USEFUL LINKS</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+
+        <li>
+          <a href="/">Home</a>
+        </li>
+
+        <li>
+          <a href="/about">About</a>
+        </li>
+
+        <li>
+          <a href="/pricing">Pricing</a>
+        </li>
+
+        <li>
+          <a href="/faq">FAQ</a>
+        </li>
+
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- COLUMN 4 -->
+
+    <div class="footer-column">
+
+      <h3>CONTACT</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        <i class="fas fa-house"></i>
+        Telangana, India
+      </p>
+
+      <p>
+        <i class="fas fa-envelope"></i>
+        vaquitadigitalsolutions@gmail.com
+      </p>
+
+      <p>
+        <i class="fas fa-phone"></i>
+        +91 9849141518
+      </p>
+
+      <p>
+        <i class="fas fa-print"></i>
+        +91 9849141518
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+
+  <div class="footer-bottom">
+
+    <p>
+      © 2026 Copyright:
+      <span>Vaquita</span>
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaquita | Pricing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="logo-wrap">
+    <a href="/" class="logo-link">
+
+      <img src="{{ url_for('static', filename='logo.png') }}"
+           alt="Vaquita Logo"
+           class="logo-img">
+
+      <span class="logo-text">VAQUITA</span>
+
+    </a>
+  </div>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing" class="active">Pricing</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+</header>
+
+<!-- PRICING SECTION -->
+
+<section class="page-section fade-up">
+
+  <h1 class="page-title">Pricing Plans</h1>
+
+  <p class="page-desc">
+    Flexible pricing designed for startups, creators,
+    professionals, and growing businesses.
+  </p>
+
+  <div class="pricing-note">
+    All pricing mentioned are starting estimates.
+    Final pricing may vary depending on project scope,
+    customization, timelines, features, and business requirements.
+  </div>
+
+  <div class="cards pricing-grid">
+
+    <!-- DIGITAL MARKETING -->
+
+    <div class="card animated-card pricing-card">
+
+      <h3>Digital Marketing</h3>
+
+      <p class="price-tag">
+        Starting From ₹4,999
+      </p>
+
+      <p>
+        Strategic digital marketing services designed to
+        improve brand visibility, audience engagement,
+        online growth, and customer reach.
+      </p>
+
+      <ul>
+        <li>Social Media Strategy</li>
+        <li>SEO Optimization</li>
+        <li>Brand Promotion</li>
+        <li>Performance Insights</li>
+        <li>Monthly Growth Support</li>
+      </ul>
+
+      <div class="pricing-footer-text">
+        Final pricing depends on campaign scope and business goals.
+      </div>
+
+      <a href="/contact"
+         class="btn btn-primary full-btn">
+        Get Custom Quote
+      </a>
+
+    </div>
+
+    <!-- FREELANCING -->
+
+    <div class="card animated-card pricing-card featured-price">
+
+      <h3>Freelancing Services</h3>
+
+      <p class="price-tag">
+        Starting From ₹2,499
+      </p>
+
+      <p>
+        Professional support services for students,
+        freelancers, creators, startups,
+        and working professionals.
+      </p>
+
+      <ul>
+        <li>Resume Building</li>
+        <li>Portfolio Creation</li>
+        <li>Presentation Design</li>
+        <li>Project Assistance</li>
+        <li>Custom Digital Support</li>
+      </ul>
+
+      <div class="pricing-footer-text">
+        Customized solutions available according to
+        individual requirements.
+      </div>
+
+      <a href="/contact"
+         class="btn btn-primary full-btn">
+        Contact for Pricing
+      </a>
+
+    </div>
+
+    <!-- WEB DESIGN -->
+
+    <div class="card animated-card pricing-card">
+
+      <h3>Web Designing</h3>
+
+      <p class="price-tag">
+        Starting From ₹9,999
+      </p>
+
+      <p>
+        Modern responsive websites crafted for businesses,
+        startups, creators, and personal brands.
+      </p>
+
+      <ul>
+        <li>Responsive Website Design</li>
+        <li>Modern UI / UX</li>
+        <li>Mobile Optimization</li>
+        <li>SEO Ready Design</li>
+        <li>Professional Brand Styling</li>
+      </ul>
+
+      <div class="pricing-footer-text">
+        Pricing varies depending on features,
+        functionality, and project complexity.
+      </div>
+
+      <a href="/contact"
+         class="btn btn-primary full-btn">
+        Discuss Project
+      </a>
+
+    </div>
+
+    <!-- CUSTOM PACKAGE -->
+
+    <div class="card animated-card pricing-card">
+
+      <h3>Custom Package</h3>
+
+      <p class="price-tag">
+        Flexible Pricing
+      </p>
+
+      <p>
+        Tailored solutions specifically designed for
+        unique business requirements and advanced project needs.
+      </p>
+
+      <ul>
+        <li>Custom Service Combination</li>
+        <li>Flexible Project Planning</li>
+        <li>Business-Focused Strategy</li>
+        <li>Advanced Support</li>
+        <li>Scalable Solutions</li>
+      </ul>
+
+      <div class="pricing-footer-text">
+        Contact us directly for personalized quotations
+        and consultation.
+      </div>
+
+      <a href="/contact"
+         class="btn btn-primary full-btn">
+        Request Consultation
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+  <div class="footer-top-bar">
+
+    <div class="footer-top-left">
+      <span>
+        Get connected with us on social networks:
+      </span>
+    </div>
+
+    <div class="footer-social-icons">
+
+     
+
+      <a href="#">
+        <i class="fab fa-google"></i>
+      </a>
+
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA==">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411"">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://github.com/vaquitadigitalwork">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER MAIN -->
+
+  <div class="footer-main">
+
+    <div class="footer-column">
+
+      <h3>VAQUITA</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        Vaquita is a modern digital platform focused on helping
+        businesses, startups, creators, and individuals grow
+        through web design, branding,
+        freelancing, and digital marketing services.
+      </p>
+
+    </div>
+
+    <!-- SERVICES -->
+
+    <div class="footer-column">
+
+      <h3>SERVICES</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+        <li><a href="/services">Digital Marketing</a></li>
+        <li><a href="/services">Freelancing</a></li>
+        <li><a href="/services">Web Designing</a></li>
+        <li><a href="/portfolio">Portfolio Projects</a></li>
+      </ul>
+
+    </div>
+
+    <!-- LINKS -->
+
+    <div class="footer-column">
+
+      <h3>USEFUL LINKS</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+
+    </div>
+
+    <!-- CONTACT -->
+
+    <div class="footer-column">
+
+      <h3>CONTACT</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        <i class="fas fa-house"></i>
+        Telangana, India
+      </p>
+
+      <p>
+        <i class="fas fa-envelope"></i>
+        vaquitadigitalsolutions@gmail.com
+      </p>
+
+      <p>
+        <i class="fas fa-phone"></i>
+        +91 9849141518
+      </p>
+
+      <p>
+        <i class="fas fa-print"></i>
+        +91 9849141518
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+
+  <div class="footer-bottom">
+
+    <p>
+      © 2026 Copyright:
+      <span>Vaquita</span>
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

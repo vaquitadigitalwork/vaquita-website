@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaquita | Contact</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo-wrap">
+    <a href="/" class="logo-link">
+
+      <img src="{{ url_for('static', filename='logo.png') }}"
+           alt="Vaquita Logo"
+           class="logo-img">
+
+      <span class="logo-text">VAQUITA</span>
+
+    </a>
+  </div>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/testimonials">Testimonials</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact" class="active">Contact</a>
+  </nav>
+
+</header>
+
+<!-- CONTACT SECTION -->
+
+<section class="page-section fade-up">
+
+  <h1 class="page-title">
+    Contact Us
+  </h1>
+
+  <p class="page-desc">
+    Get in touch with Vaquita for digital marketing,
+    web design, branding, and freelance support.
+  </p>
+
+  <div class="contact-layout">
+
+    <!-- LEFT SIDE -->
+
+    <div class="card contact-image-box animated-card">
+
+      <img src="{{ url_for('static', filename='contact.jpg') }}"
+           alt="Contact"
+           class="contact-img">
+
+      <h3>Contact Information</h3>
+
+      <p>
+        Email: vaquitadigitalsolutions@gmail.com
+      </p>
+
+      <p>
+        Phone: +91 9849141518
+      </p>
+
+      <p>
+        Location: Telangana, India
+      </p>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+
+    <div class="contact-box animated-card">
+
+      <h3>Send a Message</h3>
+
+      <form action="/submit-contact"
+            method="POST">
+
+        <!-- NAME -->
+
+        <input type="text"
+               name="name"
+               placeholder="Your Name"
+               required>
+
+        <!-- EMAIL -->
+
+        <input type="email"
+               name="email"
+               placeholder="Your Email"
+               required>
+
+        <!-- PHONE -->
+
+        <input type="tel"
+               name="phone"
+               placeholder="Phone Number"
+               required>
+
+        <!-- SERVICE SELECT -->
+
+        <select name="service"
+                required>
+
+          <option value="">
+            Select Service
+          </option>
+
+          <option value="Digital Marketing">
+            Digital Marketing
+          </option>
+
+          <option value="Freelancing Services">
+            Freelancing Services
+          </option>
+
+          <option value="Web Designing">
+            Web Designing
+          </option>
+
+        </select>
+
+        <!-- AMOUNT -->
+
+        <input type="number"
+               name="amount"
+               placeholder="Estimated Budget / Amount"
+               required>
+
+        <!-- MESSAGE -->
+
+        <textarea name="message"
+                  placeholder="Tell us about your project or requirement"
+                  required></textarea>
+
+        <!-- BUTTON -->
+
+        <button type="submit"
+                class="btn btn-primary full-btn">
+
+          Send Message
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+  <div class="footer-top-bar">
+
+    <div class="footer-top-left">
+      <span>
+        Get connected with us on social networks:
+      </span>
+    </div>
+
+    <div class="footer-social-icons">
+
+      <a href="#">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-google"></i>
+      </a>
+
+      <a href="https://www.instagram.com/vaquitadigitalworks?igsh=MWlkdGJ2NWtlMmNyaA==">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/gaddam-suma-6a521a411">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://github.com/vaquitadigitalwork">
+        <i class="fab fa-github"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER MAIN -->
+
+  <div class="footer-main">
+
+    <div class="footer-column">
+
+      <h3>VAQUITA</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        Vaquita is a modern digital service platform focused on helping
+        businesses, startups, and individuals grow through web design,
+        digital marketing, freelancing support, and branding solutions.
+      </p>
+
+    </div>
+
+    <!-- SERVICES -->
+
+    <div class="footer-column">
+
+      <h3>SERVICES</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+        <li><a href="/services">Digital Marketing</a></li>
+        <li><a href="/services">Freelancing</a></li>
+        <li><a href="/services">Web Designing</a></li>
+        <li><a href="/portfolio">Portfolio Projects</a></li>
+      </ul>
+
+    </div>
+
+    <!-- LINKS -->
+
+    <div class="footer-column">
+
+      <h3>USEFUL LINKS</h3>
+
+      <div class="footer-line"></div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+
+    </div>
+
+    <!-- CONTACT -->
+
+    <div class="footer-column">
+
+      <h3>CONTACT</h3>
+
+      <div class="footer-line"></div>
+
+      <p>
+        <i class="fas fa-house"></i>
+        Telangana, India
+      </p>
+
+      <p>
+        <i class="fas fa-envelope"></i>
+        vaquitadigitalsolutions@gmail.com
+      </p>
+
+      <p>
+        <i class="fas fa-phone"></i>
+        +91 9849141518
+      </p>
+
+      <p>
+        <i class="fas fa-print"></i>
+        +91 9849141518
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="footer-bottom">
+
+    <p>
+      © 2026 Copyright:
+      <span>Vaquita</span>
+    </p>
+
+  </div>
+</footer>
+</body>
+</html>

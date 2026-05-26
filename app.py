@@ -25,10 +25,18 @@ scope = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "credentials.json",
-    scope
-)
+creds_json = os.environ.get("GOOGLE_CREDENTIALS")
+
+if creds_json:
+    creds_dict = json.loads(creds_json)
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+    client = gspread.authorize(creds)
+    sheet = client.open("Vaquita Client Leads").sheet1
+else:
+    creds = None
+    client = None
+    sheet = None
+
 
 client = gspread.authorize(creds)
 

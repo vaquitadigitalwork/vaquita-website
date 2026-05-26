@@ -38,10 +38,6 @@ else:
     sheet = None
 
 
-client = gspread.authorize(creds)
-
-# GOOGLE SHEET NAME
-sheet = client.open("Vaquita Client Leads").sheet1
 
 
 # =====================================================
@@ -567,15 +563,17 @@ def submit_contact():
     date = datetime.now().strftime("%d-%m-%Y %H:%M")
 
     # SAVE DATA TO GOOGLE SHEET
-    sheet.append_row([
-        name,
-        email,
-        phone,
-        service,
-        amount,
-        message,
-        date
-    ])
+        # SAVE DATA TO GOOGLE SHEET
+    if sheet:
+        sheet.append_row([
+            name,
+            email,
+            phone,
+            service,
+            amount,
+            message,
+            date
+        ])
 
     return f"""
     <!DOCTYPE html>

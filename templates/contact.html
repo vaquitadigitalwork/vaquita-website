@@ -24,9 +24,14 @@
   <div class="logo-wrap">
     <a href="/" class="logo-link">
 
-      <img src="{{ url_for('static', filename='logo.png') }}"
-           alt="Vaquita Logo"
-           class="logo-img">
+      <img src="{{ url_for('static', filename='logo.svg') }}"
+     alt="Vaquita Logo"
+     class="logo-img"
+     loading="eager"
+     fetchpriority="high"
+     decoding="async"
+     width="256" height="256">
+
 
       <span class="logo-text">VAQUITA</span>
 
@@ -182,13 +187,7 @@
 
     <div class="footer-social-icons">
 
-      <a href="#">
-        <i class="fab fa-facebook-f"></i>
-      </a>
 
-      <a href="#">
-        <i class="fab fa-twitter"></i>
-      </a>
 
       <a href="#">
         <i class="fab fa-google"></i>

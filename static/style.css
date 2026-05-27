@@ -1747,3 +1747,61 @@ textarea {
   }
 
 }
+/* ============================================================
+   FINAL FRONTEND FIXES — append at end of file
+   (additive only, nothing above is removed)
+============================================================ */
+
+/* 1. Fix background image path everywhere (was 404-ing) */
+body {
+  background-image:
+    linear-gradient(rgba(5,25,65,0.42), rgba(5,25,65,0.42)),
+    url("/static/logo1.webp");
+}
+
+.hero-home {
+  background:
+    linear-gradient(90deg, rgba(3,18,48,0.90), rgba(3,18,48,0.58)),
+    url("/static/logo1.webp") center/cover no-repeat !important;
+}
+
+.loader-wrapper {
+  background:
+    linear-gradient(rgba(5,25,65,0.92), rgba(5,25,65,0.92)),
+    url("/static/logo1.webp") center/cover no-repeat;
+}
+
+/* 2. Safety: auto-hide loader after 4s in case JS fails */
+.loader-wrapper {
+  animation: loaderAutoHide 0s ease 4s forwards;
+}
+@keyframes loaderAutoHide {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* 3. Loader logo font fallback (Aquire was never loaded) */
+.loader-logo {
+  font-family: 'Montserrat', 'Aquire', sans-serif;
+}
+
+/* 4. Image sharpness — let photos use smooth scaling */
+.featured-img,
+.card-img,
+.contact-img,
+.logo-img,
+.service-preview-card img,
+.split-image img,
+.portfolio-gallery .card-img {
+  image-rendering: auto;
+}
+
+/* 5. Prevent layout shift while lazy images load */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Smoother fixed-bg behavior on iOS (no jump on scroll) */
+@supports (-webkit-touch-callout: none) {
+  body { background-attachment: scroll; }
+}

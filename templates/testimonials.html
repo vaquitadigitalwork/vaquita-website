@@ -425,12 +425,14 @@
 <header>
   <div class="logo-wrap">
     <a href="/" class="logo-link">
-      <img
-        src="{{ url_for('static', filename='logo.png') }}"
-        onerror="this.onerror=null; this.src='{{ url_for('static', filename='logo.jpeg') }}';"
-        alt="Vaquita Logo"
-        class="logo-img"
-      >
+      <img src="{{ url_for('static', filename='logo.jpg') }}"
+     alt="Vaquita Logo"
+     class="logo-img"
+     loading="eager"
+     fetchpriority="high"
+     decoding="async"
+     width="256" height="256">
+
       <span class="logo-text">VAQUITA</span>
     </a>
   </div>

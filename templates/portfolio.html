@@ -35,9 +35,15 @@
 
     <a href="/" class="logo-link">
 
-      <img src="{{ url_for('static', filename='logo.jpg') }}" loading="eager"/>
-           alt="Vaquita Logo"
-           class="logo-img">
+      
+      <img src="{{ url_for('static', filename='logo.jpg') }}"
+     alt="Vaquita Logo"
+     class="logo-img"
+     loading="eager"
+     fetchpriority="high"
+     decoding="async"
+     width="256" height="256">
+
 
       <span class="logo-text">VAQUITA</span>
 

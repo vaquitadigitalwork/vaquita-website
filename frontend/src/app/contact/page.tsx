@@ -57,7 +57,7 @@ function ContactFormInner() {
   return (
     <div className="lg:col-span-7">
       <div className="glass-card rounded-3xl p-8 sm:p-12 border border-card-border">
-        <form action="/submit-contact" method="POST" className="flex flex-col gap-5">
+        <form action="/api/contact" method="POST" className="flex flex-col gap-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className="text-xs font-bold text-text-secondary uppercase tracking-wide">

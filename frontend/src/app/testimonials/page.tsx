@@ -156,7 +156,7 @@ export default function TestimonialsPage() {
                 </p>
               </motion.div>
             ) : (
-              <form action="/submit-review" method="POST" className="flex flex-col gap-5">
+              <form action="/api/review" method="POST" className="flex flex-col gap-5">
                 <div>
                   <h3 className="font-display font-bold text-2xl text-text-primary text-center mb-2">
                     Submit Your Review

@@ -1,1 +1,81 @@
-@import "tailwindcss";`n`n@theme {`n  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;`n  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;`n  `n  --color-background: var(--bg-color);`n  --color-foreground: var(--text-color);`n  `n  --color-brand-blue: #2563eb;`n  --color-brand-cyan: #06b6d4;`n  --color-brand-navy: #0f172a;`n  `n  --color-card-bg: rgba(30, 41, 59, 0.4);`n  --color-card-border: rgba(51, 65, 85, 0.5);`n  --color-text-primary: #f8fafc;`n  --color-text-secondary: #94a3b8;`n  --color-text-muted: #64748b;`n  --color-section-accent: #020617;`n}`n`n:root {`n  --bg-color: #030712;`n  --text-color: #f8fafc;`n  color-scheme: dark;`n}`n`nbody {`n  background-color: var(--bg-color);`n  color: var(--text-color);`n  overflow-x: hidden;`n}`n`n.radial-glow {`n  position: absolute;`n  border-radius: 50%;`n  filter: blur(100px);`n  pointer-events: none;`n}`n`n.glass-card {`n  background: var(--color-card-bg);`n  backdrop-filter: blur(12px);`n  border: 1px solid var(--color-card-border);`n}`n`n@keyframes pulse-glow {`n  0%, 100% { opacity: 0.5; transform: translate(-50%, -5%) scale(1); }`n  50% { opacity: 0.8; transform: translate(-50%, 5%) scale(1.1); }`n}`n`n@keyframes float-logo {`n  0%, 100% { transform: translateY(0); }`n  50% { transform: translateY(-10px); }`n}`n`n.animate-float-logo {`n  animation: float-logo 4s ease-in-out infinite;`n}`n`n.btn-secondary-theme {`n  background: rgba(255, 255, 255, 0.05);`n  border: 1px solid rgba(255, 255, 255, 0.1);`n}`n`n.btn-secondary-theme:hover {`n  background: rgba(255, 255, 255, 0.1);`n  border-color: rgba(255, 255, 255, 0.2);`n}
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--bg-color);
+  --color-foreground: var(--text-color);
+
+  --color-brand-blue: #2563eb;
+  --color-brand-cyan: #06b6d4;
+  --color-brand-navy: #0f172a;
+
+  --color-card-bg: rgba(30, 41, 59, 0.4);
+  --color-card-border: rgba(51, 65, 85, 0.5);
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-section-accent: #020617;
+}
+
+:root {
+  --bg-color: #030712;
+  --text-color: #f8fafc;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.radial-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glass-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-card-border);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -5%) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, 5%) scale(1.1);
+  }
+}
+
+@keyframes float-logo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-logo {
+  animation: float-logo 4s ease-in-out infinite;
+}
+
+.btn-secondary-theme {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary-theme:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}

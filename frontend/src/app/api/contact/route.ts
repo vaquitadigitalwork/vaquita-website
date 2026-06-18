@@ -1,22 +1,63 @@
 import { NextResponse } from "next/server";
+import { google } from "googleapis";
 
 export async function POST(req: Request) {
-  const data = await req.formData();
+  try {
+    const data = await req.formData();
 
-  const lead = {
-    name: data.get("name"),
-    email: data.get("email"),
-    phone: data.get("phone"),
-    service_type: data.get("service_type"),
-    amount: data.get("amount"),
-    message: data.get("message"),
-    created_at: new Date().toISOString(),
-  };
+    const name = String(data.get("name") || "");
+    const email = String(data.get("email") || "");
+    const phone = String(data.get("phone") || "");
+    const service = String(data.get("service_type") || "");
+    const amount = String(data.get("amount") || "");
+    const message = String(data.get("message") || "");
 
-  console.log("CONTACT LEAD:", lead);
+    const credentials = JSON.parse(
+      process.env.GOOGLE_CREDENTIALS || "{}"
+    );
 
-  return NextResponse.json({
-    success: true,
-    message: "Message submitted successfully",
-  });
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+
+    const sheets = google.sheets({
+      version: "v4",
+      auth,
+    });
+
+    const date = new Date().toLocaleString("en-IN");
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: "1GsNdyG0Fcbk7Hy5aW2LHfgnHtz6bGHA2TU8Yl28ERvE",
+      range: "Sheet1!A:G",
+      valueInputOption: "RAW",
+      requestBody: {
+        values: [[
+          name,
+          email,
+          phone,
+          service,
+          amount,
+          message,
+          date,
+        ]],
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: "Message submitted successfully",
+    });
+  } catch (error) {
+    console.error("GOOGLE SHEETS ERROR:", error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to save lead",
+      },
+      { status: 500 }
+    );
+  }
 }

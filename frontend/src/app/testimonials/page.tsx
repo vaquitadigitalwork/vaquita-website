@@ -93,6 +93,29 @@ export default function TestimonialsPage() {
   const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+
+  try {
+    const response = await fetch("/api/review", {
+      method: "POST",
+      body: formData,
+    });
+
+    await response.json();
+
+    setSubmitted(true);
+
+    e.currentTarget.reset();
+    setRating(5);
+  } catch (error) {
+    alert("Failed to submit review.");
+  }
+};
 
   useEffect(() => {
     setMounted(true);
@@ -156,7 +179,7 @@ export default function TestimonialsPage() {
                 </p>
               </motion.div>
             ) : (
-              <form action="/api/review" method="POST" className="flex flex-col gap-5">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div>
                   <h3 className="font-display font-bold text-2xl text-text-primary text-center mb-2">
                     Submit Your Review
@@ -197,31 +220,33 @@ export default function TestimonialsPage() {
                   <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                     Rating
                   </label>
-                  <div className="flex gap-1.5 items-center">
+                 <div className="flex gap-1.5 items-center">
                     {Array.from({ length: 5 }, (_, i) => {
-                      const starIdx = i + 1;
-                      return (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => setRating(starIdx)}
-                          onMouseEnter={() => setHoverRating(starIdx)}
-                          onMouseLeave={() => setHoverRating(0)}
-                          className="text-2xl outline-none focus:scale-115 transition-transform"
-                        >
-                          <Star
-                            className={`w-7 h-7 transition-colors ${
-                              starIdx <= (hoverRating || rating)
-                                ? "text-yellow-400 fill-yellow-400"
-                                : "text-text-muted"
-                            }`}
-                          />
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <input type="hidden" name="rating" value={rating} />
+                    const starIdx = i + 1;
+
+                    return (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setRating(starIdx)}
+                        onMouseEnter={() => setHoverRating(starIdx)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        className="text-2xl outline-none focus:scale-115 transition-transform"
+                      >
+                        <Star
+                          className={`w-7 h-7 transition-colors ${
+                          starIdx <= (hoverRating || rating)
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-text-muted"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
                 </div>
+
+                <input type="hidden" name="rating" value={rating} />
+</div>
 
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="text" className="text-xs font-bold text-text-secondary uppercase tracking-wide">

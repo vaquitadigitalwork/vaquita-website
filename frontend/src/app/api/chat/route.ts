@@ -1,7 +1,81 @@
 import { NextResponse } from "next/server";
 
 function getVaquitaReply(message: string) {
-  const text = message.toLowerCase().trim();
+  const text = message.toLowerCase();
+
+  if (
+    text.includes("price") ||
+    text.includes("cost") ||
+    text.includes("pricing")
+  ) {
+    return `
+💰 Vaquita Pricing
+
+🌐 Website Development:
+₹5,000 – ₹100,000+
+
+📈 Digital Marketing:
+₹5,000 – ₹50,000+
+
+🎨 Branding & Design:
+Custom pricing based on requirements.
+
+Tell me your project and I will guide you.
+`;
+  }
+
+  if (
+    text.includes("website") ||
+    text.includes("web development")
+  ) {
+    return `
+🌐 Website Development Services
+
+✔ Business Websites
+✔ Portfolio Websites
+✔ E-Commerce Stores
+✔ Landing Pages
+✔ SEO Optimization
+✔ Responsive Design
+
+Tell me what type of website you need.
+`;
+  }
+
+  if (
+    text.includes("marketing") ||
+    text.includes("seo")
+  ) {
+    return `
+📈 Digital Marketing Services
+
+✔ SEO
+✔ Google Ads
+✔ Facebook Ads
+✔ Instagram Growth
+✔ Lead Generation
+✔ Content Marketing
+
+Tell me your business niche.
+`;
+  }
+
+  if (
+    text.includes("contact") ||
+    text.includes("phone")
+  ) {
+    return `
+📞 Contact Vaquita
+
+Phone:
++91 9849141518
+
+Email:
+vaquitadigitalsolutions@gmail.com
+
+We usually reply within 24 hours.
+`;
+  }
 
   if (
     text.includes("hi") ||
@@ -11,35 +85,22 @@ function getVaquitaReply(message: string) {
     return `
 👋 Welcome to Vaquita Digital Solutions
 
-We help businesses, startups, creators, and freelancers grow professionally online.
-
-🌐 Website Design & Development
-📈 Digital Marketing
-💼 Freelancing Guidance
-🎨 Branding & UI Design
-🚀 Business Growth Support
+How can I help you today?
 `;
   }
 
   return `
 🤖 Vaquita AI Assistant
 
-I can help you with:
+You can ask me about:
 
-🌐 Website Development
-📈 Digital Marketing
-💼 Freelancing Guidance
-🎨 Branding
-🚀 Business Growth
+• Website Development
+• Pricing
+• SEO
+• Digital Marketing
+• Branding
+• Contact Information
 
-Please ask your question in detail.
+Please type your question.
 `;
-}
-
-export async function POST(req: Request) {
-  const body = await req.json();
-
-  return NextResponse.json({
-    reply: getVaquitaReply(body.message || ""),
-  });
 }

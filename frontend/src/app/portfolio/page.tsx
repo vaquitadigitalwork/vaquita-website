@@ -31,7 +31,7 @@ const projects: Project[] = [
   {
     title: "Vaquita Corporate Hub",
     category: "Web Design",
-    image: "/company.svg",
+    image: "/company-team.webp",
     desc: "A stunning, dark-themed, high-performance platform engineered for digital service showcases.",
     tag: "Next.js + Tailwind",
     icon: Laptop,
@@ -47,7 +47,7 @@ const projects: Project[] = [
   {
     title: "Digital Marketing Campaign",
     category: "Digital Marketing",
-    image: "/digitalmarketing.svg",
+    image: "/digitalmarketing-team.webp",
     desc: "A fully optimized audience targeting structure to maximize brand reach and lead volume.",
     tag: "Social Ads + SEO",
     icon: TrendingUp,
@@ -63,7 +63,7 @@ const projects: Project[] = [
   {
     title: "Creative Branding & Portfolio UI",
     category: "Web Design",
-    image: "/web-design.svg",
+    image: "/web-development-teamS.webp",
     desc: "A minimalist, responsive visual design demonstrating services with deep interactive layouts.",
     tag: "Framer + UI/UX",
     icon: Compass,
@@ -79,7 +79,7 @@ const projects: Project[] = [
   {
     title: "Freelancing Guide Hub",
     category: "Freelancing",
-    image: "/freelancing.svg",
+    image: "/freelancing-team.webp",
     desc: "A clean support interface with structural resumes, branding resources, and portfolios.",
     tag: "Support & Branding",
     icon: Tag,
@@ -95,7 +95,7 @@ const projects: Project[] = [
   {
     title: "Enterprise E-Commerce Hub",
     category: "Web Design",
-    image: "/contact.svg",
+    image: "/contact-team.webp",
     desc: "A responsive digital commerce checkout portal with secure payment and inventory logic.",
     tag: "Next.js + Stripe",
     icon: Laptop,

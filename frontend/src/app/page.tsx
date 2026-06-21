@@ -26,19 +26,19 @@ const services = [
     icon: Globe, 
     title: "Web Design & Development Solutions", 
     desc: "Professional websites, web applications, e-commerce platforms, and custom business solutions designed for speed, performance, and growth.", 
-    image: "/web-design.svg" 
+    image: "/web-development-team.webp" 
   },
   { 
     icon: TrendingUp, 
     title: "Digital Marketing & Brand Growth", 
     desc: "Comprehensive digital marketing services including SEO, social media marketing, Google Ads, Meta Ads, content strategy, and lead generation.", 
-    image: "/digitalmarketing.svg" 
+    image: "/digitalmarketing-team.webp" 
   },
   { 
     icon: Briefcase, 
     title: "Freelancing & Professional Portfolio Services", 
     desc: "Professional portfolio development, resume optimization, freelancing guidance, client acquisition strategies, and personal branding solutions.", 
-    image: "/freelancing.svg" 
+    image: "/freelancing-team.webp" 
   },
 ];
 
@@ -189,7 +189,7 @@ export default function HomePage() {
           <div className="relative rounded-3xl border border-card-border bg-card-bg p-2 backdrop-blur shadow-[0_0_50px_rgba(37,99,235,0.25)] overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-cyan-500/10 rounded-2xl pointer-events-none" />
             <img
-              src="/web-design.svg"
+              src="/web-development-team.webp"
               alt="Vaquita Platform Mockup"
               width={1024}
               height={576}
@@ -227,7 +227,7 @@ export default function HomePage() {
               <motion.div variants={fadeUp} className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-card-border relative group">
                   <img
-                    src="/company.svg"
+                    src="/company-team.webp"
                     alt="Vaquita Team Workspace"
                     width={640}
                     height={440}

@@ -194,7 +194,7 @@ export default function ServicesPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/40 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 backdrop-blur border border-card-border text-white text-[10px] font-bold uppercase tracking-wider">
+                  <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/80 dark:bg-black/60 backdrop-blur border border-card-border text-white text-[10px] font-bold uppercase tracking-wider">
                     <Laptop className="w-3.5 h-3.5 text-cyan-400" />
                     {service.timeline}
                   </div>

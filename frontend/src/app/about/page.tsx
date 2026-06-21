@@ -209,7 +209,7 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <div className="rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)] border border-card-border relative group">
                 <img
-                  src="/company.svg"
+                  src="/company-team.webp"
                   alt="Vaquita Workspace Group"
                   className="w-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   style={{ aspectRatio: "16/10" }}

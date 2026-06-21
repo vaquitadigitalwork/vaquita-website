@@ -301,7 +301,7 @@ export default function ContactPage() {
             {/* Visual Callout Image */}
             <div className="relative rounded-2xl overflow-hidden border border-card-border shadow-2xl group">
               <img
-                src="/contact.svg"
+                src="/contact-team.webp"
                 alt="Contact Vaquita Support"
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500 aspect-[16/10]"
               />

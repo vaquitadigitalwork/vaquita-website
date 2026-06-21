@@ -15,6 +15,14 @@ export async function POST(req: Request) {
     const credentials = JSON.parse(
       process.env.GOOGLE_CREDENTIALS || "{}"
     );
+    console.log(
+      "GOOGLE_CREDENTIALS FOUND:",
+      !!process.env.GOOGLE_CREDENTIALS
+    );
+    console.log(
+      "CLIENT EMAIL:",
+      credentials.client_email
+    );
 
     const auth = new google.auth.GoogleAuth({
       credentials,
@@ -49,13 +57,12 @@ export async function POST(req: Request) {
       success: true,
       message: "Message submitted successfully",
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("GOOGLE SHEETS ERROR:", error);
-
     return NextResponse.json(
       {
         success: false,
-        message: "Failed to save lead",
+        message: String(error?.message || error),
       },
       { status: 500 }
     );

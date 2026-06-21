@@ -98,7 +98,8 @@ export default function TestimonialsPage() {
 ) => {
   e.preventDefault();
 
-  const formData = new FormData(e.currentTarget);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
 
   try {
     const response = await fetch("/api/review", {
@@ -106,14 +107,19 @@ export default function TestimonialsPage() {
       body: formData,
     });
 
+    if (!response.ok) {
+      throw new Error("Submit failed");
+    }
+
     await response.json();
 
     setSubmitted(true);
 
-    e.currentTarget.reset();
+    form.reset();
     setRating(5);
   } catch (error) {
     alert("Failed to submit review.");
+    console.error(error);
   }
 };
 

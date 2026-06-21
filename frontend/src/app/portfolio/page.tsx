@@ -63,7 +63,7 @@ const projects: Project[] = [
   {
     title: "Creative Branding & Portfolio UI",
     category: "Web Design",
-    image: "/web-development-teamS.webp",
+    image: "/UI.webp",
     desc: "A minimalist, responsive visual design demonstrating services with deep interactive layouts.",
     tag: "Framer + UI/UX",
     icon: Compass,
@@ -111,7 +111,7 @@ const projects: Project[] = [
   {
     title: "Social Growth Strategy",
     category: "Digital Marketing",
-    image: "/digitalmarketing.svg",
+    image: "/growth-team.webp",
     desc: "A targeted Instagram organic growth structure establishing client authority.",
     tag: "Branding + SEO",
     icon: TrendingUp,

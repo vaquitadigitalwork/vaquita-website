@@ -104,3 +104,21 @@ You can ask me about:
 Please type your question.
 `;
 }
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+
+    return NextResponse.json({
+      reply: getVaquitaReply(body.message || ""),
+    });
+  } catch (error) {
+    console.error("CHAT API ERROR:", error);
+
+    return NextResponse.json(
+      {
+        reply: "Sorry, something went wrong.",
+      },
+      { status: 500 }
+    );
+  }
+}

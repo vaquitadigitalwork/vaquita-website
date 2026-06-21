@@ -10,6 +10,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface ServiceItem {
   id: string;
@@ -393,6 +394,7 @@ export default function ServicesPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
     </div>
   );
 }

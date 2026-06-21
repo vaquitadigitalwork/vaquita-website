@@ -6,6 +6,7 @@ import { Star, Send, CheckCircle, Users, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface Review {
   name: string;
@@ -283,6 +284,7 @@ export default function TestimonialsPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
     </div>
   );
 }

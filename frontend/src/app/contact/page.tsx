@@ -6,6 +6,7 @@ import { Phone, Mail, MapPin, Send } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const budgetBounds = {
   "Web Design": { min: 5000, max: 100000, step: 1000, def: 19999 },
@@ -366,6 +367,7 @@ export default function ContactPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
     </div>
   );
 }

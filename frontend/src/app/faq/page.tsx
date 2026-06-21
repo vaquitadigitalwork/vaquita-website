@@ -9,6 +9,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface ChatMessage {
   role: "user" | "bot";
@@ -364,6 +365,8 @@ export default function FAQPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
+      
     </div>
   );
 }

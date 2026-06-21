@@ -10,6 +10,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const values = [
   { icon: Target, title: "Result-Oriented", desc: "We prioritize solutions that contribute to business expansion, user engagement, and strong market visibility." },

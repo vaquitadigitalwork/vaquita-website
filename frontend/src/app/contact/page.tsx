@@ -20,6 +20,7 @@ function ContactFormInner() {
   const [serviceType, setServiceType] = useState<ServiceType>("Web Design");
   const [budget, setBudget] = useState("19999");
   const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const paramService = searchParams.get("service");
   const paramPlan = searchParams.get("plan");
@@ -53,11 +54,60 @@ function ContactFormInner() {
   }, [paramService, paramPlan, paramPrice, paramSubject]);
 
   const activeBounds = budgetBounds[serviceType];
+  const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      setSubmitted(true);
+      form.reset();
+      return;
+    }
+
+    alert(result.message);
+  } catch (error) {
+    alert("Failed to submit contact request.");
+  }
+};
 
   return (
     <div className="lg:col-span-7">
       <div className="glass-card rounded-3xl p-8 sm:p-12 border border-card-border">
-        <form action="/api/contact" method="POST" className="flex flex-col gap-5">
+        {submitted ? (
+          <div className="text-center py-10">
+            <div className="text-6xl mb-4">🚀</div>
+
+            <h2 className="text-3xl font-bold text-text-primary mb-4">
+              Project Request Received
+            </h2>
+
+            <p className="text-text-secondary max-w-md mx-auto leading-relaxed">
+              Thank you for contacting Vaquita Digital Solutions.
+               Our team has received your project requirements and
+              will contact you within 24 hours.
+            </p>
+
+            <div className="mt-6 p-4 rounded-xl border border-green-500/20 bg-green-500/10">
+              <p className="text-green-400 font-semibold">
+                ✓ Submission Successful
+              </p>
+            </div>
+          </div>
+) : (
+  <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className="text-xs font-bold text-text-secondary uppercase tracking-wide">
@@ -175,6 +225,7 @@ function ContactFormInner() {
             <Send className="w-4 h-4" />
           </button>
         </form>
+      )}
       </div>
     </div>
   );

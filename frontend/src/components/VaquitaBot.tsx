@@ -73,7 +73,7 @@ export default function VaquitaBot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 rounded-2xl overflow-hidden shadow-2xl border border-card-border flex flex-col"
+            className="fixed bottom-28 right-8 z-50 w-80 sm:w-96 rounded-2xl overflow-hidden shadow-2xl border border-card-border flex flex-col"
             style={{ maxHeight: "70vh" }}
           >
             {/* Header */}

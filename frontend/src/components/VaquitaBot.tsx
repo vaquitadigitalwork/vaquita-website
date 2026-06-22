@@ -52,7 +52,7 @@ export default function VaquitaBot() {
           fixed bottom-24 right-6 z-50
           group
           flex items-center justify-end
-          w-60
+          w-16 hover:w-60
           h-16
           rounded-full
           bg-gradient-to-r from-blue-600 to-indigo-600

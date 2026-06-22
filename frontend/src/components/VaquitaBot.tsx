@@ -48,11 +48,36 @@ export default function VaquitaBot() {
       {/* Floating button */}
       <motion.button
         onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-blue to-brand-cyan shadow-[0_0_30px_rgba(37,99,235,0.5)] flex items-center justify-center text-white transition-transform hover:scale-105"
-        whileTap={{ scale: 0.9 }}
+        className="
+          fixed bottom-24 right-6 z-50
+          group
+          flex items-center justify-end
+          w-72
+          h-16
+          rounded-full
+          bg-gradient-to-r from-blue-600 to-indigo-600
+          shadow-[0_0_25px_rgba(59,130,246,0.5)]
+          overflow-hidden
+          text-white
+          transition-all duration-500 ease-out
+        "
+        whileTap={{ scale: 0.95 }}
         aria-label="Chat with Vaquita"
       >
-        <AnimatePresence mode="wait">
+        <span
+          className="
+          opacity-0
+          group-hover:opacity-100
+          mr-4
+          whitespace-nowrap
+          font-semibold
+          transition-all duration-300
+        "
+        >
+        Vaquita Assistant
+  </span>
+
+  <AnimatePresence mode="wait">
           {open ? (
             <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
               <X className="w-6 h-6" />

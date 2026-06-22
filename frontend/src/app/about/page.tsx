@@ -246,6 +246,7 @@ export default function AboutPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
     </div>
   );
 }

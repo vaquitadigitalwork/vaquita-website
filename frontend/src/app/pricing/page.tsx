@@ -10,6 +10,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VaquitaBot from "@/components/VaquitaBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 type Category = "web-dev" | "freelance" | "marketing";
 
@@ -489,6 +490,7 @@ export default function PricingPage() {
 
       <Footer />
       <VaquitaBot />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
       group
       flex items-center
       justify-end
-      w-16 hover:w-72
+      w-16 hover:w-60
       h-16
       rounded-full
       bg-gradient-to-r from-green-500 to-green-600
